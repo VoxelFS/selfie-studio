@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { forwardRef } from 'react'
 
-export const Navbar = () => {
+export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
   // TODO make mobile friendly
   return (
     <>
-      <nav className="bg-white px-12 border-b-5 border-[#bbfcff] justify-between flex items-center">
+      <nav className="bg-white px-12 border-b-5 border-[#bbfcff] justify-between flex items-center" ref={ref}>
         <div className="flex-row font-medium text-2xl color-dark-red">
           <a>about us</a>
           <a className="ml-16 ">locations</a>
@@ -17,4 +18,4 @@ export const Navbar = () => {
       </nav>
     </>
   );
-}
+});
