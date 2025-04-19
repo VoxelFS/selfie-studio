@@ -6,7 +6,6 @@ interface AboutUsProps {
 }
 
 export default function AboutUs({ aboutPage }: AboutUsProps) {
-  // TODO make text smaller
   return (
     <div className="flex flex-col md:flex-row w-full">
       <div className="md:flex w-full">
@@ -20,7 +19,7 @@ export default function AboutUs({ aboutPage }: AboutUsProps) {
         </div>
 
         <div className="bg-white w-full md:w-1/2 py-8 px-8 rounded-b-2xl md:rounded-tl-2xl md:rounded-tr-none md:rounded-br-none">
-          <p className="font-medium text-3xl">{aboutPage.storeTitle}</p>
+          <p className="font-medium text-2xl md:text-3xl">{aboutPage.storeTitle}</p>
           <p className="mt-6 text-lg text-gray-700">{aboutPage.storeAbout}</p>
           {aboutPage.socials.map((social, index) => (
             <div key={index} className="flex flex-row mt-6 text-lg gap-2">
