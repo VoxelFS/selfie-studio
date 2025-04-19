@@ -87,10 +87,12 @@ export interface Config {
   globals: {
     'home-page': HomePage;
     'about-page': AboutPage;
+    'location-page': LocationPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'location-page': LocationPageSelect<false> | LocationPageSelect<true>;
   };
   locale: null;
   user: User & {
@@ -311,6 +313,32 @@ export interface AboutPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-page".
+ */
+export interface LocationPage {
+  id: string;
+  stores?:
+    | {
+        location: string;
+        storePhoto: string | Media;
+        address: string;
+        'opening-hours': {
+          monday: string;
+          tuesday: string;
+          wednesday: string;
+          thursday: string;
+          friday: string;
+          saturday: string;
+          sunday: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -335,6 +363,34 @@ export interface AboutPageSelect<T extends boolean = true> {
         id?: T;
       };
   storePhotos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "location-page_select".
+ */
+export interface LocationPageSelect<T extends boolean = true> {
+  stores?:
+    | T
+    | {
+        location?: T;
+        storePhoto?: T;
+        address?: T;
+        'opening-hours'?:
+          | T
+          | {
+              monday?: T;
+              tuesday?: T;
+              wednesday?: T;
+              thursday?: T;
+              friday?: T;
+              saturday?: T;
+              sunday?: T;
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
