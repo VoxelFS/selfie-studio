@@ -86,9 +86,11 @@ export interface Config {
   };
   globals: {
     'home-page': HomePage;
+    'about-page': AboutPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
   };
   locale: null;
   user: User & {
@@ -289,10 +291,50 @@ export interface HomePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page".
+ */
+export interface AboutPage {
+  id: string;
+  storeTitle: string;
+  storeAbout: string;
+  socials?:
+    | {
+        social: string;
+        handle: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  storePhotos: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
   Photos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page_select".
+ */
+export interface AboutPageSelect<T extends boolean = true> {
+  storeTitle?: T;
+  storeAbout?: T;
+  socials?:
+    | T
+    | {
+        social?: T;
+        handle?: T;
+        link?: T;
+        id?: T;
+      };
+  storePhotos?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -2,9 +2,9 @@
 
 import { getPayload } from '@/libs/payload';
 
-export const getHomePage = async () => {
+export const getAboutPage = async () => {
   const payload = await getPayload()
   return await payload.findGlobal({
-    slug: "home-page"
+    slug: "about-page"
   });
 }
