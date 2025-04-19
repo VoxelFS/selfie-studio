@@ -6,6 +6,7 @@ interface AboutUsProps {
 }
 
 export default function AboutUs({ aboutPage }: AboutUsProps) {
+  // TODO make text smaller
   return (
     <div className="flex flex-col md:flex-row w-full">
       <div className="md:flex w-full">

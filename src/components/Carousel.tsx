@@ -26,7 +26,7 @@ export default function Carousel({ children, autoSlide=false, autoSlideInterval=
   }, [])
 
   return (
-    <div className="overflow-hidden relative h-screen w-screen">
+    <div className="overflow-hidden relative">
       <div
         className="flex transition-transform ease-out duration-500 "
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -34,10 +34,10 @@ export default function Carousel({ children, autoSlide=false, autoSlideInterval=
         {children}
       </div>
       <div className="absolute inset-0 flex items-center justify-between p-4">
-        <button onClick={next} className="hover:cursor-pointer">
+        <button onClick={prev} className="hover:cursor-pointer">
           <ArrowBackIosIcon sx={{ color: 'white' }} fontSize="large" />
         </button>
-        <button onClick={prev} className="hover:cursor-pointer">
+        <button onClick={next} className="hover:cursor-pointer">
           <ArrowForwardIosIcon sx={{ color: 'white' }} fontSize="large" />
         </button>
       </div>
