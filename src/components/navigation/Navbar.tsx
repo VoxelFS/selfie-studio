@@ -3,6 +3,7 @@ import { forwardRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Link from 'next/link'
 
 export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +36,9 @@ export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
 
         {/* Logo */}
-        <Image src="/assets/logo.png" alt="logo" height={70} width={70} />
+        <Link href="/" className="z-40">
+          <Image src="/assets/logo.png" alt="logo" height={70} width={70} />
+        </Link>
 
         {/* Desktop Right Links */}
         <div className="hidden md:flex gap-16 font-medium text-2xl color-dark-red">
@@ -72,16 +75,14 @@ export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
             className="fixed top-0 left-0 w-full h-full bg-white flex flex-col items-center justify-center gap-10 z-40"
           >
             {links.map(({ href, label }) => (
-              <motion.a
+              <a
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className="text-3xl font-bold text-red-800"
-                whileHover={{ scale: 1.1, opacity: 0.7 }}
-                transition={{ type: "tween", duration: 0.1 }}
+                className="text-3xl font-bold color-dark-red"
               >
                 {label}
-              </motion.a>
+              </a>
             ))}
           </motion.div>
         )}
