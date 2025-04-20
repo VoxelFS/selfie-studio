@@ -1,13 +1,14 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import StandardLayout from '@/components/layout/StandardLayout'
-import Title from '@/components/Title'
-import { getLocationPage } from '@/actions/pages/getLocationPage'
-import ParseLocationPage from '@/types/parsers/parseLocationPage'
-import LocationSelector from '@/app/(frontend)/locations/_components/LocationSelector'
-import LocationSection from '@/app/(frontend)/locations/_components/LocationSection'
-import { Location } from '@/types/locationPage'
+import { useEffect, useState } from 'react';
+import StandardLayout from '@/components/layout/StandardLayout';
+import Title from '@/components/Title';
+import { getLocationPage } from '@/actions/pages/getLocationPage';
+import ParseLocationPage from '@/types/parsers/parseLocationPage';
+import LocationSelector from '@/app/(frontend)/locations/_components/LocationSelector';
+import LocationSection from '@/app/(frontend)/locations/_components/LocationSection';
+import { Location } from '@/types/locationPage';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Page() {
   const [curr, setCurr] = useState(0);
@@ -33,7 +34,10 @@ export default function Page() {
           <LocationSelector stores={stores} curr={curr} setCurr={setCurr} />
         </div>
         {loading ? (
-          <div>Loading location info...</div>
+          <div className="flex justify-center items-center text-white space-x-2 h-[50%]">
+            <CircularProgress color="inherit" />
+            <p>Loading location info...</p>
+          </div>
         ) : (
           <LocationSection LocationPage={stores[curr]} />
         )}
