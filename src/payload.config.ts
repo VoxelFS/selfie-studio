@@ -13,6 +13,7 @@ import storage from '@/collections/Storage'
 import HomePage from '@/collections/global/HomePage'
 import AboutPage from '@/collections/global/AboutPage'
 import LocationPage from '@/collections/global/LocationPage'
+import { GalleryPage } from '@/collections/global/GalleryPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +26,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media],
-  globals: [HomePage, AboutPage, LocationPage],
+  globals: [HomePage, AboutPage, LocationPage, GalleryPage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -88,11 +88,13 @@ export interface Config {
     'home-page': HomePage;
     'about-page': AboutPage;
     'location-page': LocationPage;
+    'gallery-page': GalleryPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
     'location-page': LocationPageSelect<false> | LocationPageSelect<true>;
+    'gallery-page': GalleryPageSelect<false> | GalleryPageSelect<true>;
   };
   locale: null;
   user: User & {
@@ -339,6 +341,16 @@ export interface LocationPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "gallery-page".
+ */
+export interface GalleryPage {
+  id: string;
+  galleryPhotos: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -391,6 +403,16 @@ export interface LocationPageSelect<T extends boolean = true> {
         id?: T;
       };
   storePhotos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "gallery-page_select".
+ */
+export interface GalleryPageSelect<T extends boolean = true> {
+  galleryPhotos?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
