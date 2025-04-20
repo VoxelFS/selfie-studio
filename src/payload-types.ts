@@ -307,7 +307,6 @@ export interface AboutPage {
         id?: string | null;
       }[]
     | null;
-  storePhotos: (string | Media)[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -334,6 +333,7 @@ export interface LocationPage {
         id?: string | null;
       }[]
     | null;
+  storePhotos: (string | Media)[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -362,7 +362,6 @@ export interface AboutPageSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
-  storePhotos?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -391,6 +390,7 @@ export interface LocationPageSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  storePhotos?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

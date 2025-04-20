@@ -1,10 +1,20 @@
 import { LocationPage, Media } from '@/payload-types'
 import { Location, ParsedLocationPage } from '@/types/locationPage'
+import { Photo } from '@/types/homePage'
 
 export default function ParseLocationPage(data: LocationPage): ParsedLocationPage | undefined {
   if (!data || !Array.isArray(data.stores)) {
     return undefined;
   }
+
+  const storePhotos: Photo[] = data.storePhotos
+    .filter((photo): photo is Media => typeof photo === 'object' && photo !== null)
+    .map((photo) => ({
+      alt: photo.alt,
+      src: photo.url as string,
+      width: photo.width as number,
+      height: photo.height as number
+    }));
 
   const stores: Location[] = data.stores
     .filter((store) => typeof store === 'object' && store !== null)
@@ -30,5 +40,6 @@ export default function ParseLocationPage(data: LocationPage): ParsedLocationPag
 
   return {
     stores,
+    storePhotos,
   }
 }

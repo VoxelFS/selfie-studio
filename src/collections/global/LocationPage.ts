@@ -52,6 +52,16 @@ const LocationPage: GlobalConfig = {
           ]
         }
       ]
+    },
+    {
+      name: "storePhotos",
+      label: "Store Photos",
+      type: 'upload',
+      relationTo: "media",
+      required: true,
+      minRows: 1,
+      hasMany: true,
+      displayPreview: true
     }
   ]
 }

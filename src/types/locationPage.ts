@@ -2,6 +2,7 @@ import { Photo } from '@/types/homePage'
 
 export type ParsedLocationPage = {
   stores: Location[];
+  storePhotos: Photo[];
 }
 
 export type Location = {
