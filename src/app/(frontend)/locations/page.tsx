@@ -9,8 +9,7 @@ import LocationSelector from '@/app/(frontend)/locations/_components/LocationSel
 import LocationSection from '@/app/(frontend)/locations/_components/LocationSection';
 import { ParsedLocationPage } from '@/types/locationPage';
 import CircularProgress from '@mui/material/CircularProgress';
-import Carousel from '@/components/Carousel';
-import Image from 'next/image';
+import StorePhotos from '@/app/(frontend)/locations/_components/StorePhotos';
 
 export default function Page() {
   const [curr, setCurr] = useState(0);
@@ -44,23 +43,7 @@ export default function Page() {
           </div>
 
           <LocationSection LocationPage={stores.stores[curr]} />
-          <div className="space-y-6 mt-12">
-            <Title title={'store photos'} />
-            <div className="w-full rounded-2xl">
-              <Carousel autoSlide={true}>
-                {stores.storePhotos.map((photo, index) => (
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    height={photo.height}
-                    width={photo.width}
-                    key={index}
-                    className="rounded-2xl"
-                  />
-                ))}
-              </Carousel>
-            </div>
-          </div>
+          <StorePhotos stores={stores} />
         </div>
       )}
     </StandardLayout>
