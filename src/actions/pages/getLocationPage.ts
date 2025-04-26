@@ -1,6 +1,6 @@
 'use server'
 
-import { getPayload } from '@/libs/payload'
+import { getPayload } from 'src/lib/payload'
 
 export const getLocationPage = async () => {
   const payload = await getPayload()
