@@ -6,7 +6,7 @@ export const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z.string().email("Invalid email address"),
   phone: z.string().regex(/^\d{7,15}$/, "Phone number must be 7 to 15 digits"),
-  items: z
+  option: z
     .array(z.string())
     .length(1, { message: "Please select only one item." }),
   message: z.string().min(1, "Message is required")
