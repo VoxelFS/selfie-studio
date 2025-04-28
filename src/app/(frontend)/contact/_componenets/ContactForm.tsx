@@ -11,7 +11,7 @@ import { z } from 'zod'
 import { useState } from 'react'
 
 export default function ContactForm() {
-  const [sent, setSent] = useState<boolean>(true)
+  const [sent, setSent] = useState<boolean>(false)
 
   const form = useForm<FormInput>({
     resolver: zodResolver(formSchema),
