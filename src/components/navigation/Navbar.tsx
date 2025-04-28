@@ -36,7 +36,7 @@ export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
         </div>
 
         {/* Logo */}
-        <Link href="/" className="z-40">
+        <Link href="/" className="z-40 transition hover:opacity-50">
           <Image src="/assets/logo.png" alt="logo" height={70} width={70} />
         </Link>
 
