@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <StandardLayout>
-      <div className="mt-12 space-y-6">
+      <div className="mt-12 space-y-6 mb-12">
         <Title title={"gallery"} />
         <ImageGallery galleryPage={galleryPage} />
       </div>

@@ -90,3 +90,5 @@ export const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
     </>
   );
 });
+
+Navbar.displayName = "Navbar";
