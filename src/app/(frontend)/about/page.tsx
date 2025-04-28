@@ -14,7 +14,7 @@ export default async function Page() {
   return (
     <>
       <StandardLayout>
-        <div className="mt-12 mb-12">
+        <div className="mt-12 mb-12 md:mt-24 md:mb-24 flex flex-col gap-6 sm:gap-12">
           <div className="space-y-6 mb-12">
             <Title title={'about us'} />
             <AboutUs aboutPage={aboutPage} />

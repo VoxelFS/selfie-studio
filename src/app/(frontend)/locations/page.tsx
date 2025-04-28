@@ -31,18 +31,21 @@ export default function Page() {
   return (
     <StandardLayout>
       {loading || !stores ? (
-        <div className="flex justify-center items-center text-white space-x-2 h-[50%]">
+        <div className="flex justify-center items-center text-white font-medium space-x-2 h-[50%]">
           <CircularProgress color="inherit" />
           <p>Loading location info...</p>
         </div>
       ) : (
-        <div className="mt-12 mb-12">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6">
-            <Title title="our stores" />
-            <LocationSelector stores={stores.stores} curr={curr} setCurr={setCurr} />
+        <div className="mt-12 mb-12 md:mt-24 md:mb-24 flex flex-col gap-6 sm:gap-12">
+          <div>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6">
+              <Title title="our stores" />
+              <LocationSelector stores={stores.stores} curr={curr} setCurr={setCurr} />
+            </div>
+
+            <LocationSection LocationPage={stores.stores[curr]} />
           </div>
 
-          <LocationSection LocationPage={stores.stores[curr]} />
           <StorePhotos stores={stores} />
         </div>
       )}

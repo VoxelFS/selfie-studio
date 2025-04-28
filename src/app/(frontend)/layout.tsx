@@ -6,12 +6,18 @@ export const metadata = {
   title: 'Selfie Studio',
 }
 
+
+/* font */
+import { Figtree } from "next/font/google";
+const figtree = Figtree({ subsets: ["latin"] });
+
+
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
     <html lang="en">
-      <body>
+      <body className={`${figtree.className}`}>
         <main>{children}</main>
       </body>
     </html>
