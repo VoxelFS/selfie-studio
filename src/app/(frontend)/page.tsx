@@ -10,7 +10,6 @@ export default async function HomePage() {
   if (!homePage) {
     return
   }
-  console.log(homePage);
 
   return (
     <>
@@ -29,7 +28,6 @@ export default async function HomePage() {
               </div>
             ))}
           </Carousel>
-
         </div>
       </HomePageLayout>
     </>

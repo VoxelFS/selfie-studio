@@ -5,29 +5,13 @@ import { FormInput, formSchema } from '@/lib/zod/schema/formInput'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { z } from 'zod'
 import { useState } from 'react'
 
 export default function ContactForm() {
-  const [sent, setSent] = useState<boolean>(false)
-
-  const items = [
-    {
-      id: "renting",
-      label: "Rent",
-    },
-    {
-      id: "buying",
-      label: "Buy",
-    },
-    {
-      id: "other",
-      label: "Other",
-    }
-  ] as const;
+  const [sent, setSent] = useState<boolean>(true)
 
   const form = useForm<FormInput>({
     resolver: zodResolver(formSchema),
@@ -36,7 +20,6 @@ export default function ContactForm() {
       email: "",
       phone: "",
       message: "",
-      option: [""]
     }
   })
 
@@ -52,7 +35,6 @@ export default function ContactForm() {
         name: values.name,
         email: values.email,
         phone: values.phone,
-        items: values.option[0],
         message: values.message,
       })
     });
@@ -66,8 +48,8 @@ export default function ContactForm() {
     <>
       {sent ? (
         <div className="flex flex-col justify-center items-center">
-          <p className="text-4xl font-bold text-white">Thank you for your message!</p>
-          <p className="text-2xl font-medium text-white">
+          <p className="text-4xl font-bold">Thank you for your message!</p>
+          <p className="text-2xl font-medium opacity-50">
             Our team will reach out in 1-2 business days.
           </p>
         </div>
@@ -109,47 +91,6 @@ export default function ContactForm() {
                   <FormControl>
                     <Input placeholder="" {...field} className="h-12 text-lg px-4 bg-white" />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="option"
-              render={() => (
-                <FormItem className="flex items-center gap-4 py-1">
-                  <FormLabel className="text-xl whitespace-nowrap">I want to...</FormLabel>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
-                    {items.map((item) => (
-                      <FormField
-                        key={item.id}
-                        name="option"
-                        control={form.control}
-                        render={({ field }) => {
-                          return (
-                            <FormItem key={item.id} className="flex items-center space-x-2">
-                              <FormControl>
-                                <Checkbox
-                                  className="h-6 w-6 bg-white"
-                                  checked={field.value?.includes(item.id)}
-                                  onCheckedChange={(checked) => {
-                                    if (checked) {
-                                      field.onChange([item.id])
-                                    } else {
-                                      field.onChange([])
-                                    }
-                                  }}
-                                />
-                              </FormControl>
-                              <FormLabel className="text-lg font-medium m-0">
-                                {item.label}
-                              </FormLabel>
-                            </FormItem>
-                          )
-                        }}
-                      />
-                    ))}
-                  </div>
                   <FormMessage />
                 </FormItem>
               )}
