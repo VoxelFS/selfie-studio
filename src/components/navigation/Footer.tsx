@@ -18,7 +18,7 @@ function Footer() {
         />
         <div className="hidden md:block flex-col ml-5">
           <p className="font-bold text-xl color-dark-red">Selfie Studio</p>
-          <p className="color-dark-red text-lg">selfiestudio@gmail.com</p>
+          <p className="color-dark-red text-lg">info@selfiestudio.co.nz</p>
         </div>
       </div>
       <div
