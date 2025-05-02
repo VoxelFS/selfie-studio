@@ -1,10 +1,10 @@
 export type HomePageParsed = {
-  photos: Photo[]
-}
+    photos: Photo[];
+};
 
 export type Photo = {
-  alt: string;
-  src: string;
-  width: number;
-  height: number;
-}
+    alt: string;
+    src: string;
+    width: number;
+    height: number;
+};

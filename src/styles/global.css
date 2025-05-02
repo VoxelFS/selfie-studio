@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --font-mono: 'Roboto Mono', monospace;
+    --font-mono: "Roboto Mono", monospace;
     --color-dark-red: #862836;
     --color-light-red: #dfafad;
     --color-accent: #bbfcff;
@@ -58,7 +58,8 @@
     }
 }
 
-html, body {
+html,
+body {
     background-color: var(--color-light-red);
     width: 100%;
     overflow-x: hidden;
@@ -152,10 +153,10 @@ html, body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }

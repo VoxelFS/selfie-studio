@@ -1,5 +1,5 @@
-import { Photo } from '@/types/homePage'
+import { Photo } from "@/types/homePage";
 
 export type GalleryPageParsed = {
-  galleryPhotos: Photo[];
-}
+    galleryPhotos: Photo[];
+};

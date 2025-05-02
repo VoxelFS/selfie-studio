@@ -1,21 +1,21 @@
-import { Photo } from '@/types/homePage'
+import { Photo } from "@/types/homePage";
 
 export type ParsedLocationPage = {
-  stores: Location[];
-  storePhotos: Photo[];
-}
+    stores: Location[];
+    storePhotos: Photo[];
+};
 
 export type Location = {
-  location: string;
-  storePhoto: Photo;
-  address: string;
-  openingHours: {
-    monday: string;
-    tuesday: string;
-    wednesday: string;
-    thursday: string;
-    friday: string;
-    saturday: string;
-    sunday: string;
-  },
-}
+    location: string;
+    storePhoto: Photo;
+    address: string;
+    openingHours: {
+        monday: string;
+        tuesday: string;
+        wednesday: string;
+        thursday: string;
+        friday: string;
+        saturday: string;
+        sunday: string;
+    };
+};
