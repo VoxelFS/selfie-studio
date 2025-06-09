@@ -8,12 +8,14 @@ type CarouselProps = {
     children: ReactNode;
     autoSlide?: boolean;
     autoSlideInterval?: number;
+    showArrow: boolean;
 };
 
 export default function Carousel({
     children,
     autoSlide = false,
     autoSlideInterval = 15000,
+    showArrow = true
 }: CarouselProps) {
     const items = React.Children.toArray(children);
     const [curr, setCurr] = useState(0);
@@ -37,33 +39,37 @@ export default function Carousel({
             >
                 {children}
             </div>
-            <div className="absolute inset-0 flex items-center justify-between p-4">
-                <button onClick={prev} className="hover:cursor-pointer">
-                    <ArrowBackIosIcon
-                        sx={{ color: "white" }}
-                        fontSize="large"
-                    />
-                </button>
-                <button onClick={next} className="hover:cursor-pointer">
-                    <ArrowForwardIosIcon
-                        sx={{ color: "white" }}
-                        fontSize="large"
-                    />
-                </button>
-            </div>
-            <div className="absolute bottom-4 right-0 left-0">
-                <div className="flex items-center justify-center gap-2">
-                    {items.map((_, i) => (
-                        <div
-                            key={i}
-                            className={`
+            {showArrow && (
+                <>
+                    <div className="absolute inset-0 flex items-center justify-between p-4">
+                        <button onClick={prev} className="hover:cursor-pointer">
+                            <ArrowBackIosIcon
+                                sx={{ color: "white" }}
+                                fontSize="large"
+                            />
+                        </button>
+                        <button onClick={next} className="hover:cursor-pointer">
+                            <ArrowForwardIosIcon
+                                sx={{ color: "white" }}
+                                fontSize="large"
+                            />
+                        </button>
+                    </div>
+                    <div className="absolute bottom-4 right-0 left-0">
+                        <div className="flex items-center justify-center gap-2">
+                            {items.map((_, i) => (
+                                <div
+                                    key={i}
+                                    className={`
               transition-all w-3 h-3 bg-white rounded-full
               ${curr === i ? "p-2" : "bg-opacity-50"}
             `}
-                        />
-                    ))}
-                </div>
-            </div>
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

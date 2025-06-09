@@ -13,424 +13,419 @@
  * via the `definition` "supportedTimezones".
  */
 export type SupportedTimezones =
-    | "Pacific/Midway"
-    | "Pacific/Niue"
-    | "Pacific/Honolulu"
-    | "Pacific/Rarotonga"
-    | "America/Anchorage"
-    | "Pacific/Gambier"
-    | "America/Los_Angeles"
-    | "America/Tijuana"
-    | "America/Denver"
-    | "America/Phoenix"
-    | "America/Chicago"
-    | "America/Guatemala"
-    | "America/New_York"
-    | "America/Bogota"
-    | "America/Caracas"
-    | "America/Santiago"
-    | "America/Buenos_Aires"
-    | "America/Sao_Paulo"
-    | "Atlantic/South_Georgia"
-    | "Atlantic/Azores"
-    | "Atlantic/Cape_Verde"
-    | "Europe/London"
-    | "Europe/Berlin"
-    | "Africa/Lagos"
-    | "Europe/Athens"
-    | "Africa/Cairo"
-    | "Europe/Moscow"
-    | "Asia/Riyadh"
-    | "Asia/Dubai"
-    | "Asia/Baku"
-    | "Asia/Karachi"
-    | "Asia/Tashkent"
-    | "Asia/Calcutta"
-    | "Asia/Dhaka"
-    | "Asia/Almaty"
-    | "Asia/Jakarta"
-    | "Asia/Bangkok"
-    | "Asia/Shanghai"
-    | "Asia/Singapore"
-    | "Asia/Tokyo"
-    | "Asia/Seoul"
-    | "Australia/Brisbane"
-    | "Australia/Sydney"
-    | "Pacific/Guam"
-    | "Pacific/Noumea"
-    | "Pacific/Auckland"
-    | "Pacific/Fiji";
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
 
 export interface Config {
-    auth: {
-        users: UserAuthOperations;
-    };
-    blocks: {};
-    collections: {
-        users: User;
-        media: Media;
-        "payload-locked-documents": PayloadLockedDocument;
-        "payload-preferences": PayloadPreference;
-        "payload-migrations": PayloadMigration;
-    };
-    collectionsJoins: {};
-    collectionsSelect: {
-        users: UsersSelect<false> | UsersSelect<true>;
-        media: MediaSelect<false> | MediaSelect<true>;
-        "payload-locked-documents":
-            | PayloadLockedDocumentsSelect<false>
-            | PayloadLockedDocumentsSelect<true>;
-        "payload-preferences":
-            | PayloadPreferencesSelect<false>
-            | PayloadPreferencesSelect<true>;
-        "payload-migrations":
-            | PayloadMigrationsSelect<false>
-            | PayloadMigrationsSelect<true>;
-    };
-    db: {
-        defaultIDType: string;
-    };
-    globals: {
-        "home-page": HomePage;
-        "about-page": AboutPage;
-        "location-page": LocationPage;
-        "gallery-page": GalleryPage;
-    };
-    globalsSelect: {
-        "home-page": HomePageSelect<false> | HomePageSelect<true>;
-        "about-page": AboutPageSelect<false> | AboutPageSelect<true>;
-        "location-page": LocationPageSelect<false> | LocationPageSelect<true>;
-        "gallery-page": GalleryPageSelect<false> | GalleryPageSelect<true>;
-    };
-    locale: null;
-    user: User & {
-        collection: "users";
-    };
-    jobs: {
-        tasks: unknown;
-        workflows: unknown;
-    };
+  auth: {
+    users: UserAuthOperations;
+  };
+  blocks: {};
+  collections: {
+    users: User;
+    media: Media;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
+  };
+  collectionsJoins: {};
+  collectionsSelect: {
+    users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
+  db: {
+    defaultIDType: string;
+  };
+  globals: {
+    'home-page': HomePage;
+    'about-page': AboutPage;
+    'location-page': LocationPage;
+    'gallery-page': GalleryPage;
+  };
+  globalsSelect: {
+    'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'location-page': LocationPageSelect<false> | LocationPageSelect<true>;
+    'gallery-page': GalleryPageSelect<false> | GalleryPageSelect<true>;
+  };
+  locale: null;
+  user: User & {
+    collection: 'users';
+  };
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
+  };
 }
 export interface UserAuthOperations {
-    forgotPassword: {
-        email: string;
-        password: string;
-    };
-    login: {
-        email: string;
-        password: string;
-    };
-    registerFirstUser: {
-        email: string;
-        password: string;
-    };
-    unlock: {
-        email: string;
-        password: string;
-    };
+  forgotPassword: {
+    email: string;
+    password: string;
+  };
+  login: {
+    email: string;
+    password: string;
+  };
+  registerFirstUser: {
+    email: string;
+    password: string;
+  };
+  unlock: {
+    email: string;
+    password: string;
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-    id: string;
-    updatedAt: string;
-    createdAt: string;
-    email: string;
-    resetPasswordToken?: string | null;
-    resetPasswordExpiration?: string | null;
-    salt?: string | null;
-    hash?: string | null;
-    loginAttempts?: number | null;
-    lockUntil?: string | null;
-    password?: string | null;
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
-    id: string;
-    alt: string;
-    prefix?: string | null;
-    updatedAt: string;
-    createdAt: string;
-    url?: string | null;
-    thumbnailURL?: string | null;
-    filename?: string | null;
-    mimeType?: string | null;
-    filesize?: number | null;
-    width?: number | null;
-    height?: number | null;
-    focalX?: number | null;
-    focalY?: number | null;
+  id: string;
+  alt: string;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-    id: string;
-    document?:
-        | ({
-              relationTo: "users";
-              value: string | User;
-          } | null)
-        | ({
-              relationTo: "media";
-              value: string | Media;
-          } | null);
-    globalSlug?: string | null;
-    user: {
-        relationTo: "users";
+  id: string;
+  document?:
+    | ({
+        relationTo: 'users';
         value: string | User;
-    };
-    updatedAt: string;
-    createdAt: string;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-    id: string;
-    user: {
-        relationTo: "users";
-        value: string | User;
-    };
-    key?: string | null;
-    value?:
-        | {
-              [k: string]: unknown;
-          }
-        | unknown[]
-        | string
-        | number
-        | boolean
-        | null;
-    updatedAt: string;
-    createdAt: string;
+  id: string;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  key?: string | null;
+  value?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-    id: string;
-    name?: string | null;
-    batch?: number | null;
-    updatedAt: string;
-    createdAt: string;
+  id: string;
+  name?: string | null;
+  batch?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-    updatedAt?: T;
-    createdAt?: T;
-    email?: T;
-    resetPasswordToken?: T;
-    resetPasswordExpiration?: T;
-    salt?: T;
-    hash?: T;
-    loginAttempts?: T;
-    lockUntil?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
-    alt?: T;
-    prefix?: T;
-    updatedAt?: T;
-    createdAt?: T;
-    url?: T;
-    thumbnailURL?: T;
-    filename?: T;
-    mimeType?: T;
-    filesize?: T;
-    width?: T;
-    height?: T;
-    focalX?: T;
-    focalY?: T;
+  alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
-    document?: T;
-    globalSlug?: T;
-    user?: T;
-    updatedAt?: T;
-    createdAt?: T;
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences_select".
  */
 export interface PayloadPreferencesSelect<T extends boolean = true> {
-    user?: T;
-    key?: T;
-    value?: T;
-    updatedAt?: T;
-    createdAt?: T;
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations_select".
  */
 export interface PayloadMigrationsSelect<T extends boolean = true> {
-    name?: T;
-    batch?: T;
-    updatedAt?: T;
-    createdAt?: T;
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page".
  */
 export interface HomePage {
-    id: string;
-    Photos: (string | Media)[];
-    updatedAt?: string | null;
-    createdAt?: string | null;
+  id: string;
+  Photos: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-page".
  */
 export interface AboutPage {
-    id: string;
-    storeTitle: string;
-    storeAbout: string;
-    socials?:
-        | {
-              social: string;
-              handle: string;
-              link: string;
-              id?: string | null;
-          }[]
-        | null;
-    updatedAt?: string | null;
-    createdAt?: string | null;
+  id: string;
+  storeTitle: string;
+  storeAbout: string;
+  socials?:
+    | {
+        social: string;
+        handle: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "location-page".
  */
 export interface LocationPage {
-    id: string;
-    stores?:
-        | {
-              location: string;
-              storePhoto: string | Media;
-              address: string;
-              "opening-hours": {
-                  monday: string;
-                  tuesday: string;
-                  wednesday: string;
-                  thursday: string;
-                  friday: string;
-                  saturday: string;
-                  sunday: string;
-              };
-              id?: string | null;
-          }[]
-        | null;
-    storePhotos: (string | Media)[];
-    updatedAt?: string | null;
-    createdAt?: string | null;
+  id: string;
+  stores?:
+    | {
+        location: string;
+        storePhoto: string | Media;
+        address: string;
+        'opening-hours': {
+          monday: string;
+          tuesday: string;
+          wednesday: string;
+          thursday: string;
+          friday: string;
+          saturday: string;
+          sunday: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  storePhotos: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "gallery-page".
  */
 export interface GalleryPage {
-    id: string;
-    galleryPhotos: (string | Media)[];
-    updatedAt?: string | null;
-    createdAt?: string | null;
+  id: string;
+  galleryPhotos: (string | Media)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
-    Photos?: T;
-    updatedAt?: T;
-    createdAt?: T;
-    globalType?: T;
+  Photos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-page_select".
  */
 export interface AboutPageSelect<T extends boolean = true> {
-    storeTitle?: T;
-    storeAbout?: T;
-    socials?:
-        | T
-        | {
-              social?: T;
-              handle?: T;
-              link?: T;
-              id?: T;
-          };
-    updatedAt?: T;
-    createdAt?: T;
-    globalType?: T;
+  storeTitle?: T;
+  storeAbout?: T;
+  socials?:
+    | T
+    | {
+        social?: T;
+        handle?: T;
+        link?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "location-page_select".
  */
 export interface LocationPageSelect<T extends boolean = true> {
-    stores?:
-        | T
-        | {
-              location?: T;
-              storePhoto?: T;
-              address?: T;
-              "opening-hours"?:
-                  | T
-                  | {
-                        monday?: T;
-                        tuesday?: T;
-                        wednesday?: T;
-                        thursday?: T;
-                        friday?: T;
-                        saturday?: T;
-                        sunday?: T;
-                    };
-              id?: T;
-          };
-    storePhotos?: T;
-    updatedAt?: T;
-    createdAt?: T;
-    globalType?: T;
+  stores?:
+    | T
+    | {
+        location?: T;
+        storePhoto?: T;
+        address?: T;
+        'opening-hours'?:
+          | T
+          | {
+              monday?: T;
+              tuesday?: T;
+              wednesday?: T;
+              thursday?: T;
+              friday?: T;
+              saturday?: T;
+              sunday?: T;
+            };
+        id?: T;
+      };
+  storePhotos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "gallery-page_select".
  */
 export interface GalleryPageSelect<T extends boolean = true> {
-    galleryPhotos?: T;
-    updatedAt?: T;
-    createdAt?: T;
-    globalType?: T;
+  galleryPhotos?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
-    [k: string]: unknown;
+  [k: string]: unknown;
 }
 
-declare module "payload" {
-    export interface GeneratedTypes extends Config {}
+
+declare module 'payload' {
+  export interface GeneratedTypes extends Config {}
 }
