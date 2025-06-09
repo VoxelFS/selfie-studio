@@ -4,6 +4,7 @@ import Image from "next/image";
 import parseHomePage from "@/types/parsers/parseHomePage";
 import Carousel from "@/components/Carousel";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from "next/link";
 
 export default async function HomePage() {
     const homePage = parseHomePage(await getHomePage());
@@ -19,13 +20,13 @@ export default async function HomePage() {
                         <h1 className="text-white text-5xl md:text-6xl font-bold">
                             Selfie Studio
                         </h1>
-                        <a
+                        <Link
                             href="/locations"
                             className="group inline-flex items-center gap-2 py-2 px-4 md:px-6 md:text-base rounded-2xl font-medium bg-[#bbfcff] text-sm md:text-2xl transition-transform transform hover:scale-105"
                         >
                             Visit Our Locations
                             <ArrowForwardIcon className="w-6 h-6" />
-                        </a>
+                        </Link>
                     </div>
                     <Carousel
                         autoSlide={true}

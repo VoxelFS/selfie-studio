@@ -12,7 +12,7 @@ export default function StorePhotos({ stores }: StorePhotosProps) {
         <div className="space-y-6 mt-12">
             <Title title={"store photos"} />
             <div className="w-full rounded-2xl">
-                <Carousel autoSlide={true}>
+                <Carousel autoSlide={true} showArrow={true}>
                     {stores.storePhotos.map((photo, index) => (
                         <Image
                             src={photo.src}
