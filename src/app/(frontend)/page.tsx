@@ -20,6 +20,9 @@ export default async function HomePage() {
                         <h1 className="text-white text-5xl md:text-6xl font-bold">
                             Selfie Studio
                         </h1>
+                        <h1 className="text-white text-xl md:text-xl font-bold opacity-75">
+                            Cherish the moment. Relive it later.
+                        </h1>
                         <Link
                             href="/locations"
                             className="group inline-flex items-center gap-2 py-2 px-4 md:px-6 md:text-base rounded-2xl font-medium bg-[#bbfcff] text-sm md:text-2xl transition-transform transform hover:scale-105"

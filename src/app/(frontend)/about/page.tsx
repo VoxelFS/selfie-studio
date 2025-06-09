@@ -19,14 +19,22 @@ export default async function Page() {
                         <Title title={"about us"} />
                         <AboutUs aboutPage={aboutPage} />
                     </div>
-                    <Title title={"photo layouts"} />
+                    <Title title={"photo layouts & pricing"} />
                     <div className="space-y-6 flex justify-center">
                         <Image
-                            src="/assets/frames.png"
-                            alt="frames"
-                            width={550}
-                            height={300}
-                            className="rounded-2xl"
+                          src="/assets/frames.png"
+                          alt="frames"
+                          width={1920}
+                          height={1080}
+                          className="rounded-2xl hidden md:block"
+                        />
+
+                        <Image
+                          src="/assets/portrait.png"
+                          alt="frames"
+                          width={1080}
+                          height={1920}
+                          className="rounded-2xl block md:hidden"
                         />
                     </div>
                 </div>
